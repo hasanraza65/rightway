@@ -51,8 +51,12 @@ define('SITE_LOCALE',     'en_US');
 define('SITE_TZ',         'America/New_York');
 
 /* --------------------------------------------------------------- delivery */
-define('FORM_TO_EMAIL',   BIZ_EMAIL);                                 // TODO
-define('FORM_FROM_EMAIL', 'no-reply@rightwaymedicalbilling.com');     // TODO must be a domain you control
+define('SMTP_HOST', 'rightwayrcm.com');
+define('SMTP_PORT', 465);
+define('SMTP_USER', 'info@rightwayrcm.com');
+define('SMTP_PASS', 'y76QCLNGLXjwcEY');
+define('FORM_TO_EMAIL', 'info@rightwayrcm.com');                                // TODO
+define('FORM_FROM_EMAIL', 'info@rightwayrcm.com');     // TODO must be a domain you control
 define('FORM_LOG_DIR',    dirname(__DIR__) . '/cache/submissions');   // fallback log if mail() is unavailable
 
 /* ----------------------------------------------------------------- pexels */
