@@ -125,22 +125,51 @@ rw_partial('page-header', [
       </div>
 
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="rw-lead__media mb-5">
+        <div class="rw-lead__media">
           <?php rw_img('about-certified', ['sizes' => '(max-width: 991px) 100vw, 48vw']); ?>
         </div>
-
-        <h3 class="h5 mb-3">Systems we already work inside</h3>
-        <p class="rw-lead__para mb-3">
-          We adapt to your stack, not the other way round. If your platform supports
-          remote user access, we can operate in it.
-        </p>
-        <ul class="rw-pills rw-pills--left">
-          <?php foreach (['Epic', 'Cerner', 'athenahealth', 'eClinicalWorks', 'Kareo', 'AdvancedMD', 'DrChrono', 'NextGen', 'Practice Fusion', 'Allscripts'] as $sys): ?>
-            <li><span class="rw-pill rw-pill--static"><i class="bi bi-hdd-network" aria-hidden="true"></i><?= e($sys) ?></span></li>
-          <?php endforeach; ?>
-        </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Systems we work inside --------------------------------------------------- -->
+<section class="rw-systems section-pad bg-sky">
+  <div class="container">
+    <div class="rw-section-head" data-aos="fade-up">
+      <p class="rw-eyebrow">Compatible platforms</p>
+      <h2 class="rw-section-head__title">Systems we already work inside</h2>
+      <p class="rw-section-head__lead">
+        We adapt to your stack, not the other way round. If your platform supports
+        remote user access, we can operate in it.
+      </p>
+    </div>
+    <ul class="rw-logos" data-aos="fade-up" data-aos-delay="100">
+      <?php foreach ([
+        'epic.png'             => 'Epic',
+        'cerner.webp'          => 'Oracle Cerner',
+        'athenahealth.png'     => 'athenahealth',
+        'allscripts.webp'      => 'Allscripts',
+        'eclinic.png'          => 'eClinicalWorks',
+        'practicefussion.png'  => 'Practice Fusion',
+        'advancedmd.png'       => 'AdvancedMD',
+        'kareo.png'            => 'Kareo (Tebra)',
+        'officeALLY.jpeg'      => 'Office Ally',
+        'greenway-health.png'  => 'Greenway Health',
+        'nextech.png'          => 'Nextech',
+        'chartlogic.webp'      => 'ChartLogic',
+        'collaboratemd.png'    => 'CollaborateMD',
+        'therapynotes.png'     => 'TherapyNotes',
+        'medifusion.jpeg'      => 'MediFusion',
+      ] as $file => $sys): ?>
+        <?php $tall = in_array($file, ['collaboratemd.png'], true); ?>
+        <li>
+          <img class="rw-logos__img<?= $tall ? ' rw-logos__img--tall' : '' ?>"
+               src="<?= e(rw_asset('assets/img/icons/' . $file)) ?>"
+               alt="<?= e($sys) ?>" width="150" height="44" loading="lazy" decoding="async">
+        </li>
+      <?php endforeach; ?>
+    </ul>
   </div>
 </section>
 

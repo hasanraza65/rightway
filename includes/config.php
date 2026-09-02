@@ -18,14 +18,14 @@ define('BIZ_EMAIL',       'info@rightwaymedicalbilling.com');         // TODO
 define('BIZ_EMAIL_SALES', 'newclients@rightwaymedicalbilling.com');   // TODO
 define('BIZ_WHATSAPP',    '15551234567');                             // TODO digits only, incl. country code
 
-define('BIZ_STREET',      '123 Business Ave, Suite 200');             // TODO
-define('BIZ_CITY',        'Wilmington');                              // TODO
-define('BIZ_STATE',       'DE');                                      // TODO
-define('BIZ_ZIP',         '19801');                                   // TODO
+define('BIZ_STREET',      '1001 S Main St, Ste 600');
+define('BIZ_CITY',        'Kalispell');
+define('BIZ_STATE',       'MT');
+define('BIZ_ZIP',         '59901-1498');
 define('BIZ_COUNTRY',     'US');
 define('BIZ_ADDRESS',     BIZ_STREET . ', ' . BIZ_CITY . ', ' . BIZ_STATE . ' ' . BIZ_ZIP);
-define('BIZ_LAT',         '39.7447');                                 // TODO
-define('BIZ_LNG',         '-75.5484');                                // TODO
+define('BIZ_LAT',         '48.1919');                                 // TODO verify exact coordinates
+define('BIZ_LNG',         '-114.3116');                               // TODO verify exact coordinates
 
 // Round-the-clock coverage. BIZ_HOURS_24_7 drives the opening-hours schema as
 // well as the copy, so the two can never disagree.
