@@ -44,7 +44,6 @@ $specialties = rw_specialties();
             <li><a href="<?= e(rw_url('services.php')) ?>">Services</a></li>
             <li><a href="<?= e(rw_url('specialties.php')) ?>">Specialties</a></li>
             <li><a href="<?= e(rw_url('contact-us.php')) ?>">Contact Us</a></li>
-            <li><a href="<?= e(rw_url('credits.php')) ?>">Photo Credits</a></li>
           </ul>
         </div>
 
