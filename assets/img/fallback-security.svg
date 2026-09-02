@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Right Way Medical Billing">
+  <defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#0E2E4F"/>
+  <stop offset="1" stop-color="#071B2E"/>
+</linearGradient>
+<pattern id="p" width="56" height="56" patternUnits="userSpaceOnUse">
+  <path d="M56 0H0v56" fill="none" stroke="#FFFFFF" stroke-opacity=".05" stroke-width="1.5"/>
+</pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <rect width="1200" height="800" fill="url(#p)"/>
+  <circle cx="1010" cy="150" r="190" fill="#17A2A0" opacity=".08"/>
+  <g transform="translate(538 318) scale(8.5)" fill="#17A2A0" opacity=".9">
+<path d="M5.338 1.59a61 61 0 0 0-2.837.856.48.48 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.7 10.7 0 0 0 2.287 2.233c.346.244.652.42.893.533q.18.085.293.118a1 1 0 0 0 .291-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524"/>
+  </g>
+  <rect x="538" y="500" width="124" height="4" rx="2" fill="#17A2A0"/>
+</svg>

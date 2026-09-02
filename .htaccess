@@ -1,0 +1,123 @@
+# =============================================================================
+# Right Way Medical Billing — Apache configuration
+#
+# Covers: HTTPS redirect, extensionless URLs, the custom 404, compression,
+# cache headers, and locking down the directories that should never be served.
+# Safe to delete if you deploy behind nginx; translate the equivalents there.
+# =============================================================================
+
+Options -Indexes
+DirectoryIndex index.php
+
+# ---------------------------------------------------------------- error pages
+ErrorDocument 404 /404.php
+
+# ------------------------------------------------------------------- rewrites
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Force HTTPS. Comment out while developing over plain HTTP.
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Drop "www." so there is a single canonical host.
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+    # Pretty URLs: /services/medical-coding-services resolves to the .php file.
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^(.+?)/?$ $1.php [L]
+
+    # If someone lands on the .php URL, send them to the clean one instead, so
+    # only one version of each page is ever indexed.
+    RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+    RewriteRule ^ /%1 [L,R=301]
+
+    # index.php is the site root, not a page in its own right.
+    RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+    RewriteRule ^ / [L,R=301]
+</IfModule>
+
+# ---------------------------------------------------------------- compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE application/json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml application/rss+xml
+    AddOutputFilterByType DEFLATE font/woff2 font/woff application/font-woff
+</IfModule>
+
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# --------------------------------------------------------------------- caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                              "access plus 1 month"
+
+    # HTML is dynamic — always revalidate.
+    ExpiresByType text/html                     "access plus 0 seconds"
+
+    # Assets are fingerprinted with ?v= so they can be cached hard.
+    ExpiresByType text/css                      "access plus 1 year"
+    ExpiresByType application/javascript        "access plus 1 year"
+    ExpiresByType image/jpeg                    "access plus 1 year"
+    ExpiresByType image/png                     "access plus 1 year"
+    ExpiresByType image/svg+xml                 "access plus 1 year"
+    ExpiresByType image/webp                    "access plus 1 year"
+    ExpiresByType image/x-icon                  "access plus 1 year"
+    ExpiresByType font/woff2                    "access plus 1 year"
+
+    ExpiresByType application/xml               "access plus 1 day"
+    ExpiresByType text/plain                    "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|svg|webp|ico|woff2|woff)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(php|html)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+
+    # ------------------------------------------------------------- security
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+
+    # Remove the header that advertises the PHP version.
+    Header unset X-Powered-By
+</IfModule>
+
+# ------------------------------------------------------------ access control
+# Server-side directories that must never be requested directly over HTTP.
+RedirectMatch 404 ^/(includes|tools|cache)(/|$)
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(log|ini|sql|bak|json|md)$">
+    Require all denied
+</FilesMatch>
+
+# The webmanifest is JSON but does need to be served.
+<Files "site.webmanifest">
+    Require all granted
+    Header set Content-Type "application/manifest+json"
+</Files>
+
+# --------------------------------------------------------------------- mime
+<IfModule mod_mime.c>
+    AddType image/svg+xml                 .svg
+    AddType application/manifest+json     .webmanifest
+    AddType font/woff2                    .woff2
+    AddCharset UTF-8                      .html .css .js .xml .json
+</IfModule>

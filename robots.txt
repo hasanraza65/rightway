@@ -1,0 +1,20 @@
+# robots.txt for Right Way Medical Billing
+User-agent: *
+Allow: /
+
+# Nothing useful for a crawler, and some of it is sensitive.
+Disallow: /handlers/
+Disallow: /includes/
+Disallow: /tools/
+Disallow: /cache/
+Disallow: /thank-you.php
+Disallow: /404.php
+
+# Be polite to aggressive crawlers rather than blocking them outright.
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+Sitemap: https://rightwaymedicalbilling.com/sitemap.xml

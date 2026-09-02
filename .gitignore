@@ -1,0 +1,28 @@
+# --- credentials -----------------------------------------------------------
+# Real keys live here. Copy secrets.example.php and fill it in.
+includes/secrets.php
+
+# --- generated at runtime --------------------------------------------------
+# Sessions, rate-limit counters and form submissions are per-install state.
+cache/sessions/
+cache/rate/
+cache/submissions/
+
+# Pexels JSON responses are a re-fetchable API cache keyed by query hash.
+# The resolved manifest (includes/data/images.php) and the downloaded images
+# under assets/img/pexels-cache/ ARE committed, so a clone renders offline.
+cache/pexels/
+
+# --- os / editor -----------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+._*
+.vscode/
+.idea/
+*.sublime-workspace
+*~
+*.swp
+*.bak
