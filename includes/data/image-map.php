@@ -15,7 +15,7 @@ return [
 
 /* ------------------------------------------------------------ core pages */
 /* NOTE: the home hero no longer draws from Pexels. It uses two client-supplied
-   images (assets/img/hero-doctor.png and hero-backdrop.jpg, produced by
+   images (assets/img/hero-dr.png and hero-backdrop.jpg, produced by
    tools/make-hero-assets.php), so there is deliberately no 'home-hero' key
    here — leaving one would credit a photographer on /credits.php for a photo
    that is not on the site. */

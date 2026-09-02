@@ -2,7 +2,7 @@
 /**
  * Prepares the two client-supplied hero images.
  *
- *   doctor cut.png  -> assets/img/hero-doctor.png      (transparent cut-out)
+ *   doctor cut.png  -> assets/img/hero-dr.png      (transparent cut-out)
  *   background.png  -> assets/img/hero-backdrop.jpg    (pre-blurred backdrop)
  *
  * The backdrop is blurred at build time rather than with a CSS filter: a
@@ -39,9 +39,9 @@ $trim = imagecreatetruecolor($cw, $ch);
 imagealphablending($trim, false); imagesavealpha($trim, true);
 imagefilledrectangle($trim, 0, 0, $cw, $ch, imagecolorallocatealpha($trim, 0, 0, 0, 127));
 imagecopy($trim, $cut, 0, 0, $x0, $y0, $cw, $ch);
-imagepng($trim, $OUT . 'hero-doctor.png', 9);
-printf("hero-doctor.png  %dx%d (trimmed from %dx%d)  %.0f KB\n",
-    $cw, $ch, $w, $h, filesize($OUT . 'hero-doctor.png') / 1024);
+imagepng($trim, $OUT . 'hero-dr.png', 9);
+printf("hero-dr.png  %dx%d (trimmed from %dx%d)  %.0f KB\n",
+    $cw, $ch, $w, $h, filesize($OUT . 'hero-dr.png') / 1024);
 
 /* ------------------------------------------------------------ backdrop --- */
 $bg = imagecreatefrompng($SRC_DIR . 'background.png');

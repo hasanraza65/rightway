@@ -79,7 +79,7 @@ include __DIR__ . '/includes/header.php';
             <span class="rw-hero__stage-tint"></span>
           </div>
           <img class="rw-hero__cutout"
-               src="<?= e(rw_url('assets/img/hero-doctor.png')) ?>"
+               src="<?= e(rw_url('assets/img/hero-dr.png')) ?>"
                alt="Physician holding a tablet, representing the practices Right Way Medical Billing serves"
                width="432" height="646" fetchpriority="high" decoding="sync">
 
