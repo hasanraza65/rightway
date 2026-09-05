@@ -13,7 +13,7 @@ $meta_description = 'How Right Way Medical Billing collects, uses and protects i
 $canonical        = 'privacy-policy.php';
 $body_class       = 'page-legal';
 $breadcrumbs = [
-    ['label' => 'Home',           'url' => 'index.php'],
+    ['label' => 'Home',           'url' => ''],
     ['label' => 'Privacy Policy', 'url' => 'privacy-policy.php'],
 ];
 

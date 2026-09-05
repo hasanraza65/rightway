@@ -14,7 +14,7 @@ $specialties = rw_specialties();
       <div class="row g-4 g-lg-5">
 
         <div class="col-lg-4">
-          <a class="rw-footer__logo" href="<?= e(rw_url('index.php')) ?>">
+          <a class="rw-footer__logo" href="<?= e(rw_url('')) ?>">
             <?php [$rwFootLogoW, $rwFootLogoH] = rw_img_dims('assets/img/logo-light.png'); ?>
             <img src="<?= e(rw_url('assets/img/logo-light.png')) ?>"
                  alt="<?= e(BIZ_NAME) ?>" width="<?= $rwFootLogoW ?>" height="<?= $rwFootLogoH ?>" loading="lazy" decoding="async">
@@ -39,7 +39,7 @@ $specialties = rw_specialties();
         <div class="col-6 col-lg-2">
           <h2 class="rw-footer__head">Company</h2>
           <ul class="rw-footer__links">
-            <li><a href="<?= e(rw_url('index.php')) ?>">Home</a></li>
+            <li><a href="<?= e(rw_url('')) ?>">Home</a></li>
             <li><a href="<?= e(rw_url('about-us.php')) ?>">About Us</a></li>
             <li><a href="<?= e(rw_url('services.php')) ?>">Services</a></li>
             <li><a href="<?= e(rw_url('specialties.php')) ?>">Specialties</a></li>

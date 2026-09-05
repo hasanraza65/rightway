@@ -52,7 +52,7 @@ $onSpecialties = str_contains($canonical ?? '', 'specialt');
     <div class="rw-header__inner">
 
       <?php [$rwLogoW, $rwLogoH] = rw_img_dims('assets/img/logo.png'); ?>
-      <a class="rw-logo" href="<?= e(rw_url('index.php')) ?>" aria-label="<?= e(BIZ_NAME) ?> home">
+      <a class="rw-logo" href="<?= e(rw_url('')) ?>" aria-label="<?= e(BIZ_NAME) ?> home">
         <img src="<?= e(rw_url('assets/img/logo.png')) ?>"
              alt="<?= e(BIZ_NAME) ?> logo"
              width="<?= $rwLogoW ?>" height="<?= $rwLogoH ?>" fetchpriority="high" decoding="sync">
@@ -60,7 +60,7 @@ $onSpecialties = str_contains($canonical ?? '', 'specialt');
 
       <nav class="rw-nav d-none d-xl-block" aria-label="Primary">
         <ul class="rw-nav__list">
-          <li><a href="<?= e(rw_url('index.php')) ?>" class="rw-nav__link<?= rw_is_current('index.php') ? ' is-current' : '' ?>"<?= rw_is_current('index.php') ? ' aria-current="page"' : '' ?>>Home</a></li>
+          <li><a href="<?= e(rw_url('')) ?>" class="rw-nav__link<?= rw_is_current('') ? ' is-current' : '' ?>"<?= rw_is_current('') ? ' aria-current="page"' : '' ?>>Home</a></li>
           <li><a href="<?= e(rw_url('about-us.php')) ?>" class="rw-nav__link<?= rw_is_current('about-us.php') ? ' is-current' : '' ?>"<?= rw_is_current('about-us.php') ? ' aria-current="page"' : '' ?>>About Us</a></li>
 
           <li class="rw-nav__item rw-nav__item--mega">
@@ -141,7 +141,7 @@ $onSpecialties = str_contains($canonical ?? '', 'specialt');
 <div class="rw-mobile" id="rw-mobile-nav" hidden>
   <div class="rw-mobile__panel" role="dialog" aria-modal="true" aria-label="Site navigation">
     <div class="rw-mobile__head">
-      <a class="rw-mobile__logo" href="<?= e(rw_url('index.php')) ?>">
+      <a class="rw-mobile__logo" href="<?= e(rw_url('')) ?>">
         <img src="<?= e(rw_url('assets/img/logo.png')) ?>" alt="<?= e(BIZ_NAME) ?>" width="<?= $rwLogoW ?>" height="<?= $rwLogoH ?>" loading="lazy" decoding="async">
       </a>
       <button type="button" class="rw-mobile__close" aria-label="Close navigation menu">
@@ -151,7 +151,7 @@ $onSpecialties = str_contains($canonical ?? '', 'specialt');
 
     <nav class="rw-mobile__nav" aria-label="Mobile">
       <ul>
-        <li><a href="<?= e(rw_url('index.php')) ?>">Home</a></li>
+        <li><a href="<?= e(rw_url('')) ?>">Home</a></li>
         <li><a href="<?= e(rw_url('about-us.php')) ?>">About Us</a></li>
 
         <li class="rw-mobile__group">

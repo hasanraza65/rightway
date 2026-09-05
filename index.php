@@ -6,9 +6,9 @@ require __DIR__ . '/includes/config.php';
 
 $page_title       = 'Medical Billing Company for U.S. Practices | Right Way';
 $meta_description = 'Right Way Medical Billing runs the full revenue cycle for physician practices: billing, coding, credentialing and denial recovery. Fewer denials, faster payment.';
-$canonical        = 'index.php';
+$canonical        = '';
 $body_class       = 'page-home';
-$breadcrumbs      = [['label' => 'Home', 'url' => 'index.php']];
+$breadcrumbs      = [['label' => 'Home', 'url' => '']];
 
 $services    = rw_services();
 $specialties = rw_specialties();

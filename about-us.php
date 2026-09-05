@@ -9,7 +9,7 @@ $meta_description = 'Meet the people behind Right Way Medical Billing: certified
 $canonical        = 'about-us.php';
 $body_class       = 'page-about';
 $breadcrumbs = [
-    ['label' => 'Home',     'url' => 'index.php'],
+    ['label' => 'Home',     'url' => ''],
     ['label' => 'About Us', 'url' => 'about-us.php'],
 ];
 

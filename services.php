@@ -9,7 +9,7 @@ $meta_description = 'Eight revenue cycle services under one roof: medical billin
 $canonical        = 'services.php';
 $body_class       = 'page-services';
 $breadcrumbs = [
-    ['label' => 'Home',     'url' => 'index.php'],
+    ['label' => 'Home',     'url' => ''],
     ['label' => 'Services', 'url' => 'services.php'],
 ];
 

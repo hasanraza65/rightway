@@ -13,10 +13,10 @@
 
 $page_title       = $page_title       ?? BIZ_NAME;
 $meta_description = $meta_description ?? BIZ_TAGLINE;
-$canonical        = $canonical        ?? 'index.php';
+$canonical        = $canonical        ?? '';
 $og_type          = $og_type          ?? 'website';
 $og_image_url     = rw_abs($og_image ?? 'assets/img/og-default.jpg');
-$canonical_url    = rw_abs($canonical === 'index.php' ? '' : $canonical);
+$canonical_url    = rw_abs(($canonical === 'index.php' || $canonical === '') ? '' : $canonical);
 ?>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

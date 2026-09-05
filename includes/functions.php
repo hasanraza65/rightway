@@ -41,8 +41,10 @@ function rw_asset(string $path): string {
 function rw_is_current(string $path): bool {
     $here = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
     $here = preg_replace('#^' . preg_quote(trim(rw_url(), '/'), '#') . '/?#', '', $here);
-    $here = $here === '' ? 'index.php' : $here;
-    return trim($path, '/') === $here;
+    $here = ($here === '' || $here === 'index.php') ? '' : $here;
+    $target = trim($path, '/');
+    $target = ($target === '' || $target === 'index.php') ? '' : $target;
+    return $target === $here;
 }
 
 /** Data accessors. Both data files return keyed arrays of full page content. */

@@ -13,7 +13,7 @@ $meta_description = 'Photography used across the Right Way Medical Billing websi
 $canonical        = 'credits.php';
 $body_class       = 'page-credits';
 $breadcrumbs = [
-    ['label' => 'Home',          'url' => 'index.php'],
+    ['label' => 'Home',          'url' => ''],
     ['label' => 'Photo Credits', 'url' => 'credits.php'],
 ];
 
