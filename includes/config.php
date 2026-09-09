@@ -11,12 +11,12 @@
 define('BIZ_NAME',        'Right Way Medical Billing');
 define('BIZ_LEGAL_NAME',  'Right Way Medical Billing LLC');           // TODO
 define('BIZ_TAGLINE',     'Billing Done the Right Way');
-define('BIZ_PHONE',       '+1 (555) 123-4567');                       // TODO
-define('BIZ_PHONE_TEL',   '+15551234567');                            // TODO
+define('BIZ_PHONE',       '+1 (571) 709-1803');
+define('BIZ_PHONE_TEL',   '+15717091803');
 define('BIZ_FAX',         '+1 (555) 123-4568');                       // TODO
 define('BIZ_EMAIL',       'info@rightwayrcm.com');                    // TODO
 define('BIZ_EMAIL_SALES', 'info@rightwayrcm.com');                    // TODO
-define('BIZ_WHATSAPP',    '15551234567');                             // TODO digits only, incl. country code
+define('BIZ_WHATSAPP',    '15717091803');                             // digits only, incl. country code
 
 define('BIZ_STREET',      '1001 S Main St, Ste 600');
 define('BIZ_CITY',        'Kalispell');
