@@ -24,9 +24,10 @@ Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
 ._*
-.vscode/
 .idea/
 *.sublime-workspace
 *~
 *.swp
 *.bak
+config.bat
+node_modules
