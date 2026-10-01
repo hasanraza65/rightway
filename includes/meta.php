@@ -13,10 +13,10 @@
 
 $page_title       = $page_title       ?? BIZ_NAME;
 $meta_description = $meta_description ?? BIZ_TAGLINE;
-$canonical        = $canonical        ?? 'index.php';
+$canonical        = $canonical        ?? '';
 $og_type          = $og_type          ?? 'website';
 $og_image_url     = rw_abs($og_image ?? 'assets/img/og-default.jpg');
-$canonical_url    = rw_abs($canonical === 'index.php' ? '' : $canonical);
+$canonical_url    = rw_abs(($canonical === 'index.php' || $canonical === '') ? '' : $canonical);
 ?>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,17 +51,17 @@ $canonical_url    = rw_abs($canonical === 'index.php' ? '' : $canonical);
 <meta name="twitter:image:alt" content="<?= e(BIZ_NAME . ' — ' . BIZ_TAGLINE) ?>">
 
 <!-- Icons -->
-<link rel="icon" href="<?= e(rw_url('assets/img/favicon.ico')) ?>" sizes="32x32">
-<link rel="icon" type="image/png" sizes="32x32" href="<?= e(rw_url('assets/img/favicon-32.png')) ?>">
-<link rel="icon" type="image/png" sizes="16x16" href="<?= e(rw_url('assets/img/favicon-16.png')) ?>">
-<link rel="apple-touch-icon" href="<?= e(rw_url('assets/img/apple-touch-icon.png')) ?>">
+<link rel="icon" href="<?= e(rw_asset('assets/img/favicon.ico')) ?>" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= e(rw_asset('assets/img/favicon-32.png')) ?>">
+<link rel="icon" type="image/png" sizes="16x16" href="<?= e(rw_asset('assets/img/favicon-16.png')) ?>">
+<link rel="apple-touch-icon" href="<?= e(rw_asset('assets/img/apple-touch-icon.png')) ?>">
 <link rel="manifest" href="<?= e(rw_url('site.webmanifest')) ?>">
 
 <!-- Resource hints: fonts and the image CDN are the only third parties we touch -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="preload" as="image" href="<?= e(rw_url('assets/img/logo.png')) ?>" fetchpriority="high">
+<link rel="preload" as="image" href="<?= e(rw_asset('assets/img/logo.png')) ?>" fetchpriority="high">
 
 <link rel="preconnect" href="https://images.pexels.com" crossorigin>
 

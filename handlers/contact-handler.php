@@ -11,9 +11,25 @@
  *
  * Responds with JSON to XHR and with a redirect to a normal form post, so the
  * form works with JavaScript disabled.
+ *
+ * Delivery: admin notification is sent over authenticated SMTP via
+ * PHPMailer, instead of relying on the local mail transport. SMTP
+ * credentials are NOT hardcoded here — define them once in
+ * includes/config.php:
+ *
+ *   define('SMTP_HOST', 'rightwayrcm.com');
+ *   define('SMTP_PORT', 587);
+ *   define('SMTP_USER', 'info@rightwayrcm.com');
+ *   define('SMTP_PASS', 'your-password-here');
+ *
+ * Requires PHPMailer: composer require phpmailer/phpmailer
  */
 require __DIR__ . '/../includes/config.php';
 require __DIR__ . '/../includes/lib/form.php';
+require __DIR__ . '/../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as PHPMailerException;
 
 rw_form_bootstrap();
 
@@ -115,8 +131,54 @@ $lines = [
     'IP:         ' . rw_client_ip(),
     'Page:       ' . rw_clean($_SERVER['HTTP_REFERER'] ?? '(unknown)', 300),
 ];
+$body = implode("\n", $lines);
 
-$sent = rw_send_mail(FORM_TO_EMAIL, $subject, implode("\n", $lines), $in['email'], $in['name']);
+/**
+ * Sends the admin notification over authenticated SMTP.
+ * Falls back gracefully (logs the error) rather than fatal-erroring the
+ * request — a mail outage shouldn't turn into a 500 for the visitor.
+ */
+function rw_send_admin_notification_smtp(string $subject, string $body, string $replyToEmail, string $replyToName): bool
+{
+    if (!defined('SMTP_HOST') || !defined('SMTP_USER') || !defined('SMTP_PASS')) {
+        error_log('SMTP notification skipped: SMTP_HOST/SMTP_USER/SMTP_PASS not defined in config.php');
+        return false;
+    }
+
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host       = SMTP_HOST;
+        $mail->SMTPAuth   = true;
+        $mail->Username   = SMTP_USER;
+        $mail->Password   = SMTP_PASS;
+        $mail->Port = defined('SMTP_PORT') ? (int) SMTP_PORT : 587;
+        // Port 465 requires implicit TLS (SMTPS); 587/25 use STARTTLS.
+        $mail->SMTPSecure = ($mail->Port === 465)
+            ? PHPMailer::ENCRYPTION_SMTPS
+            : PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Timeout = 12; // fail fast instead of hanging the request
+
+        $mail->setFrom(SMTP_USER, defined('BIZ_NAME') ? BIZ_NAME : 'Website');
+        $mail->addAddress(FORM_TO_EMAIL);
+
+        // Reply-To lets the admin hit "reply" and email the submitter directly.
+        if (filter_var($replyToEmail, FILTER_VALIDATE_EMAIL)) {
+            $mail->addReplyTo($replyToEmail, $replyToName ?: $replyToEmail);
+        }
+
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        $mail->isHTML(false);
+
+        return $mail->send();
+    } catch (PHPMailerException $e) {
+        error_log('SMTP admin notification failed: ' . $mail->ErrorInfo);
+        return false;
+    }
+}
+
+$sent = rw_send_admin_notification_smtp($subject, $body, $in['email'], $in['name']);
 rw_log_submission('contact', $in, $sent);
 
 rw_form_done(

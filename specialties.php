@@ -9,7 +9,7 @@ $meta_description = 'Specialty-specific medical billing across sixteen fields, f
 $canonical        = 'specialties.php';
 $body_class       = 'page-specialties';
 $breadcrumbs = [
-    ['label' => 'Home',        'url' => 'index.php'],
+    ['label' => 'Home',        'url' => ''],
     ['label' => 'Specialties', 'url' => 'specialties.php'],
 ];
 

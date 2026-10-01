@@ -15,7 +15,7 @@ $meta_description = 'That page does not exist at Right Way Medical Billing. Use 
 $canonical        = '404.php';
 $body_class       = 'page-404';
 $noindex          = true;
-$breadcrumbs      = [['label' => 'Home', 'url' => 'index.php']];
+$breadcrumbs      = [['label' => 'Home', 'url' => '']];
 
 include __DIR__ . '/includes/header.php';
 ?>
@@ -32,7 +32,7 @@ include __DIR__ . '/includes/header.php';
       </p>
 
       <div class="rw-message__actions">
-        <a class="btn btn-rw-teal btn-lg" href="<?= e(rw_url('index.php')) ?>">Back to Home</a>
+        <a class="btn btn-rw-teal btn-lg" href="<?= e(rw_url('')) ?>">Back to Home</a>
         <a class="btn btn-rw-outline btn-lg" href="<?= e(rw_url('contact-us.php')) ?>">Contact Us</a>
       </div>
 

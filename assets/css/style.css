@@ -2428,6 +2428,64 @@ body.rw-locked { overflow: hidden; }
 }
 .rw-pill--static:hover i { color: var(--rw-teal-700); }
 
+/* Vendor / EHR logo grid ("Systems we already work inside").
+   Logos are third-party trademarks shown for identification only. */
+.rw-systems .rw-section-head { max-width: 640px; }
+.rw-logos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rw-logos li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 104px;
+  padding: 1.5rem;
+  background: var(--rw-white);
+  border: 1px solid var(--rw-gray-300);
+  border-radius: var(--rw-radius-sm);
+  transition: border-color .22s var(--rw-ease), box-shadow .22s var(--rw-ease),
+              transform .22s var(--rw-ease);
+}
+.rw-logos li:hover {
+  border-color: var(--rw-teal-300);
+  box-shadow: 0 14px 30px rgba(15, 42, 54, .1);
+  transform: translateY(-4px);
+}
+.rw-logos img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 40px;
+  object-fit: contain;
+  transition: transform .22s var(--rw-ease);
+}
+.rw-logos li:hover img { transform: scale(1.05); }
+/* Logos with a tall / square lockup need more height to read at the same weight */
+.rw-logos__img--tall { max-height: 68px; }
+@media (prefers-reduced-motion: reduce) {
+  .rw-logos li:hover,
+  .rw-logos li:hover img { transform: none; }
+}
+.rw-systems__note {
+  max-width: 640px;
+  margin: 1.75rem auto 0;
+  text-align: center;
+  font-size: .8rem;
+  color: var(--rw-gray-600);
+}
+@media (max-width: 991px) {
+  .rw-logos { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 575px) {
+  .rw-logos { grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+  .rw-logos li { min-height: 88px; padding: 1.15rem; }
+}
+
 /* The footer social row reused on a light card (contact page). Without this the
    inherited white-on-translucent-white treatment renders invisible. */
 .rw-footer__social--light a {

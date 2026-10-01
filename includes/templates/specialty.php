@@ -16,7 +16,7 @@ $meta_description = $sp['meta_desc'];
 $canonical        = 'specialties/' . $slug . '.php';
 $body_class       = 'page-specialty';
 $breadcrumbs = [
-    ['label' => 'Home',        'url' => 'index.php'],
+    ['label' => 'Home',        'url' => ''],
     ['label' => 'Specialties', 'url' => 'specialties.php'],
     ['label' => $sp['title'],  'url' => $canonical],
 ];

@@ -12,7 +12,7 @@ $canonical        = 'thank-you.php';
 $body_class       = 'page-thanks';
 $noindex          = true;   // a confirmation page has no business in search results
 $breadcrumbs = [
-    ['label' => 'Home',      'url' => 'index.php'],
+    ['label' => 'Home',      'url' => ''],
     ['label' => 'Thank You', 'url' => 'thank-you.php'],
 ];
 

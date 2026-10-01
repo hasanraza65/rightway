@@ -2,6 +2,10 @@
 # Real keys live here. Copy secrets.example.php and fill it in.
 includes/secrets.php
 
+# --- dependencies --------------------------------------------------------
+# Composer packages are restored with `composer install` from composer.lock.
+/vendor/
+
 # --- generated at runtime --------------------------------------------------
 # Sessions, rate-limit counters and form submissions are per-install state.
 cache/sessions/
