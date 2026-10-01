@@ -11,21 +11,21 @@
 define('BIZ_NAME',        'Right Way Medical Billing');
 define('BIZ_LEGAL_NAME',  'Right Way Medical Billing LLC');           // TODO
 define('BIZ_TAGLINE',     'Billing Done the Right Way');
-define('BIZ_PHONE',       '+1 (555) 123-4567');                       // TODO
-define('BIZ_PHONE_TEL',   '+15551234567');                            // TODO
+define('BIZ_PHONE',       '+1 (406) 233-1994');
+define('BIZ_PHONE_TEL',   '+14062331994');
 define('BIZ_FAX',         '+1 (555) 123-4568');                       // TODO
-define('BIZ_EMAIL',       'info@rightwaymedicalbilling.com');         // TODO
-define('BIZ_EMAIL_SALES', 'newclients@rightwaymedicalbilling.com');   // TODO
-define('BIZ_WHATSAPP',    '15551234567');                             // TODO digits only, incl. country code
+define('BIZ_EMAIL',       'info@rightwayrcm.com');                    // TODO
+define('BIZ_EMAIL_SALES', 'info@rightwayrcm.com');                    // TODO
+define('BIZ_WHATSAPP',    '14062331994');                             // digits only, incl. country code
 
-define('BIZ_STREET',      '123 Business Ave, Suite 200');             // TODO
-define('BIZ_CITY',        'Wilmington');                              // TODO
-define('BIZ_STATE',       'DE');                                      // TODO
-define('BIZ_ZIP',         '19801');                                   // TODO
+define('BIZ_STREET',      '1001 S Main St, Ste 600');
+define('BIZ_CITY',        'Kalispell');
+define('BIZ_STATE',       'MT');
+define('BIZ_ZIP',         '59901-1498');
 define('BIZ_COUNTRY',     'US');
 define('BIZ_ADDRESS',     BIZ_STREET . ', ' . BIZ_CITY . ', ' . BIZ_STATE . ' ' . BIZ_ZIP);
-define('BIZ_LAT',         '39.7447');                                 // TODO
-define('BIZ_LNG',         '-75.5484');                                // TODO
+define('BIZ_LAT',         '48.1919');                                 // TODO verify exact coordinates
+define('BIZ_LNG',         '-114.3116');                               // TODO verify exact coordinates
 
 // Round-the-clock coverage. BIZ_HOURS_24_7 drives the opening-hours schema as
 // well as the copy, so the two can never disagree.
@@ -51,8 +51,12 @@ define('SITE_LOCALE',     'en_US');
 define('SITE_TZ',         'America/New_York');
 
 /* --------------------------------------------------------------- delivery */
-define('FORM_TO_EMAIL',   BIZ_EMAIL);                                 // TODO
-define('FORM_FROM_EMAIL', 'no-reply@rightwaymedicalbilling.com');     // TODO must be a domain you control
+define('SMTP_HOST', 'rightwayrcm.com');
+define('SMTP_PORT', 465);
+define('SMTP_USER', 'info@rightwayrcm.com');
+define('SMTP_PASS', 'y76QCLNGLXjwcEY');
+define('FORM_TO_EMAIL', 'info@rightwayrcm.com');                                // TODO
+define('FORM_FROM_EMAIL', 'info@rightwayrcm.com');     // TODO must be a domain you control
 define('FORM_LOG_DIR',    dirname(__DIR__) . '/cache/submissions');   // fallback log if mail() is unavailable
 
 /* ----------------------------------------------------------------- pexels */

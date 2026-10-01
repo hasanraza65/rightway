@@ -17,7 +17,7 @@ $meta_description = $svc['meta_desc'];
 $canonical        = 'services/' . $slug . '.php';
 $body_class       = 'page-service';
 $breadcrumbs = [
-    ['label' => 'Home',     'url' => 'index.php'],
+    ['label' => 'Home',     'url' => ''],
     ['label' => 'Services', 'url' => 'services.php'],
     ['label' => $svc['title'], 'url' => $canonical],
 ];
