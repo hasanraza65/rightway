@@ -13,7 +13,7 @@ define('BIZ_LEGAL_NAME',  'Right Way Medical Billing LLC');           // TODO
 define('BIZ_TAGLINE',     'Billing Done the Right Way');
 define('BIZ_PHONE',       '+1 (571) 709-1803');
 define('BIZ_PHONE_TEL',   '+15717091803');
-define('BIZ_FAX',         '+1 (555) 123-4568');                       // TODO
+define('BIZ_FAX',         '+1 (406) 233-1994');
 define('BIZ_EMAIL',       'info@rightwayrcm.com');                    // TODO
 define('BIZ_EMAIL_SALES', 'info@rightwayrcm.com');                    // TODO
 define('BIZ_WHATSAPP',    '15717091803');                             // digits only, incl. country code
