@@ -13,7 +13,7 @@ $meta_description = 'The terms that apply to visitors using the Right Way Medica
 $canonical        = 'terms-of-service.php';
 $body_class       = 'page-legal';
 $breadcrumbs = [
-    ['label' => 'Home',             'url' => 'index.php'],
+    ['label' => 'Home',             'url' => ''],
     ['label' => 'Terms of Service', 'url' => 'terms-of-service.php'],
 ];
 

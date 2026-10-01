@@ -9,7 +9,7 @@ $meta_description = 'Talk to Right Way Medical Billing about your practice reven
 $canonical        = 'contact-us.php';
 $body_class       = 'page-contact';
 $breadcrumbs = [
-    ['label' => 'Home',       'url' => 'index.php'],
+    ['label' => 'Home',       'url' => ''],
     ['label' => 'Contact Us', 'url' => 'contact-us.php'],
 ];
 
@@ -49,7 +49,6 @@ rw_partial('page-header', [
             patient identifiers &mdash; we will send you a secure link instead.
           </p>
           <a href="mailto:<?= e(BIZ_EMAIL) ?>"><?= e(BIZ_EMAIL) ?></a><br>
-          <a href="mailto:<?= e(BIZ_EMAIL_SALES) ?>"><?= e(BIZ_EMAIL_SALES) ?></a>
         </div>
       </div>
 

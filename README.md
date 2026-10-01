@@ -121,7 +121,7 @@ Photographers are credited on `/credits.php`, generated from the manifest.
 The home hero uses two client-supplied files, processed by
 `tools/make-hero-assets.php`:
 
-- `hero-doctor.png` — transparent cut-out, alpha-trimmed so the figure sits
+- `hero-dr.png` — transparent cut-out, alpha-trimmed so the figure sits
   flush in its container.
 - `hero-backdrop.jpg` — the clinic interior, blurred **at build time** rather
   than with a CSS filter (a runtime blur repaints on every scroll and bleeds
