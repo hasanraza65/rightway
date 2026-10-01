@@ -53,7 +53,7 @@ $onSpecialties = str_contains($canonical ?? '', 'specialt');
 
       <?php [$rwLogoW, $rwLogoH] = rw_img_dims('assets/img/logo.png'); ?>
       <a class="rw-logo" href="<?= e(rw_url('')) ?>" aria-label="<?= e(BIZ_NAME) ?> home">
-        <img src="<?= e(rw_url('assets/img/logo.png')) ?>"
+        <img src="<?= e(rw_asset('assets/img/logo.png')) ?>"
              alt="<?= e(BIZ_NAME) ?> logo"
              width="<?= $rwLogoW ?>" height="<?= $rwLogoH ?>" fetchpriority="high" decoding="sync">
       </a>
@@ -142,7 +142,7 @@ $onSpecialties = str_contains($canonical ?? '', 'specialt');
   <div class="rw-mobile__panel" role="dialog" aria-modal="true" aria-label="Site navigation">
     <div class="rw-mobile__head">
       <a class="rw-mobile__logo" href="<?= e(rw_url('')) ?>">
-        <img src="<?= e(rw_url('assets/img/logo.png')) ?>" alt="<?= e(BIZ_NAME) ?>" width="<?= $rwLogoW ?>" height="<?= $rwLogoH ?>" loading="lazy" decoding="async">
+        <img src="<?= e(rw_asset('assets/img/logo.png')) ?>" alt="<?= e(BIZ_NAME) ?>" width="<?= $rwLogoW ?>" height="<?= $rwLogoH ?>" loading="lazy" decoding="async">
       </a>
       <button type="button" class="rw-mobile__close" aria-label="Close navigation menu">
         <i class="bi bi-x-lg" aria-hidden="true"></i>

@@ -16,7 +16,7 @@ $specialties = rw_specialties();
         <div class="col-lg-4">
           <a class="rw-footer__logo" href="<?= e(rw_url('')) ?>">
             <?php [$rwFootLogoW, $rwFootLogoH] = rw_img_dims('assets/img/logo-light.png'); ?>
-            <img src="<?= e(rw_url('assets/img/logo-light.png')) ?>"
+            <img src="<?= e(rw_asset('assets/img/logo-light.png')) ?>"
                  alt="<?= e(BIZ_NAME) ?>" width="<?= $rwFootLogoW ?>" height="<?= $rwFootLogoH ?>" loading="lazy" decoding="async">
           </a>
           <p class="rw-footer__blurb">
